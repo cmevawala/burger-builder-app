@@ -2,7 +2,7 @@ import React from "react";
 
 import BuildControl from "./BuildControl/BuildControl";
 
-import BuildControlCSS from "../BuildControls/BuildControls.module.css";
+import BuildControlsCSS from "../BuildControls/BuildControls.module.css";
 
 const BuildControls = props => {
   const controls = [
@@ -13,7 +13,7 @@ const BuildControls = props => {
   ];
 
   return (
-    <div className={BuildControlCSS.BuildControls}>
+    <div className={BuildControlsCSS.BuildControls}>
       <p>Current Price: <strong>{props.price.toFixed(2)}</strong></p>
 
       {controls.map(control => (
@@ -26,6 +26,8 @@ const BuildControls = props => {
           disabled={props.disabled[control.type]}
         />
       ))}
+
+      <button className={BuildControlsCSS.OrderButton} disabled={!props.purchasable}>ORDER NOW</button>
     </div>
   );
 };
