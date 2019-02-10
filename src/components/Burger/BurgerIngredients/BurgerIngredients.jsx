@@ -13,7 +13,7 @@ class BurgerIngredients  extends Component {
         let ingredient = null;
 
         switch(this.props.type) {
-            case 'bread-botton':
+            case 'bread-bottom':
                 ingredient = <div className={BurgerIngredientCSS.BreadBottom}></div>;
                 break;
     
@@ -49,8 +49,8 @@ class BurgerIngredients  extends Component {
     }
 }
  
-export default BurgerIngredients;
-
 BurgerIngredients.propTypes = {
     type: PropTypes.string.isRequired
 }
+
+export default BurgerIngredients;
