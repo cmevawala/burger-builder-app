@@ -36,16 +36,36 @@ class BurgerBuilder extends Component {
     this.setState({ totalPrice: newPrice, ingredients: updateIngredients });
   };
 
-  removeIngredientHandler = () => {};
+  removeIngredientHandler = (type) => {
+    const updateIngredients = {
+      ...this.state.ingredients
+    };
+
+    updateIngredients[type] = this.state.ingredients[type] - 1;
+
+    const additionalPrice = INGREDIENT_PRICES[type];
+    const oldPrice = this.state.totalPrice;
+    const newPrice = oldPrice - additionalPrice;
+    this.setState({ totalPrice: newPrice, ingredients: updateIngredients });
+  };
 
   render() {
+
+    const disabledInfo = {
+      ...this.state.ingredients
+    }
+
+    for (let key in disabledInfo) {
+      disabledInfo[key] = disabledInfo[key] <= 0
+    }
+
     return (
       <Aux>
         <div>
           <Burger ingredients={this.state.ingredients} />
         </div>
         <div>
-          <BuildControls onAddIngredient={this.addIngredientHandler} />
+          <BuildControls onAddIngredient={this.addIngredientHandler} onRemoveIngredient={this.removeIngredientHandler} disabled={disabledInfo} />
         </div>
       </Aux>
     );

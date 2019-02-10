@@ -20,6 +20,8 @@ const BuildControls = props => {
           label={control.label}
           type={control.type}
           onMoreClick={() => props.onAddIngredient(control.type)}
+          onLessClick={() => props.onRemoveIngredient(control.type)}
+          disabled={props.disabled[control.type]}
         />
       ))}
     </div>
