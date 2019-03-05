@@ -78,8 +78,8 @@ class BurgerBuilder extends Component {
   };
 
   purchaseContinueHandler = () => {
-    alert('Continue..');
-  }
+    alert("Continue..");
+  };
 
   render() {
     const disabledInfo = {
@@ -93,7 +93,12 @@ class BurgerBuilder extends Component {
     return (
       <Aux>
         <Model show={this.state.purchasing} hide={this.purchaseCancelHandler}>
-          <OrderSummary ingredients={this.state.ingredients} purchaseCanceled={this.purchaseCancelHandler} purchaseContinue={this.purchaseContinueHandler} />
+          <OrderSummary
+            ingredients={this.state.ingredients}
+            purchaseCanceled={this.purchaseCancelHandler}
+            purchaseContinue={this.purchaseContinueHandler}
+            price={this.state.totalPrice}
+          />
         </Model>
         <div>
           <Burger ingredients={this.state.ingredients} />
