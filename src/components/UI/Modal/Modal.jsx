@@ -1,5 +1,5 @@
 import React from "react";
-import Aux from '../../../hoc/Auxilary';
+import Aux from "../../../hoc/Auxilary";
 
 import ModalCSS from "./Modal.module.css";
 import Backdrop from "../Backdrop/Backdrop";
@@ -10,7 +10,10 @@ const Model = props => {
       <Backdrop show={props.show} clicked={props.hide} />
       <div
         className={ModalCSS.Modal}
-        style={{ transform: props.show ? "translateY(0)" : "translateY(-100vh)", opacity: props.show ? "1" : "0" }}
+        style={{
+          transform: props.show ? "translateY(0)" : "translateY(-100vh)",
+          opacity: props.show ? "1" : "0"
+        }}
       >
         {props.children}
       </div>
